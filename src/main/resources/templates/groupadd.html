@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Group</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/home.css" th:href="@{/css/home.css}"/>
+</head>
+<section id="musicAlbum">
+    <div class="container">
+        <div th:insert="fragments/header :: header"></div>
+
+        <div class="addeditentity">
+            <form th:action="@{/groupAdd}" method="post">
+                <label for="groupName">Group Name:</label><br>
+                <input type="text" id="groupName" name="groupName" /><br>
+                <input type="submit" value="Add"/>
+            </form>
+        </div>
+
+        <footer>
+            <h3>Music Album &copy; 2023-2024</h3>
+        </footer>
+    </div>
+</section>
+</body>
+</html>

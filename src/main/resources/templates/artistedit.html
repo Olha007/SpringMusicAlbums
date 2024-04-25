@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Artist</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/home.css" th:href="@{/css/home.css}"/>
+</head>
+<body>
+<section id="musicAlbum">
+    <div class="container">
+        <div th:insert="fragments/header :: header"></div>
+        <div class="addeditentity">
+            <form th:action="@{/artistEdit}" method="post">
+                <label for="artistId">Artist Id:</label><br>
+                <input type="text" id=artistId name="artistId" th:value="${artist.id}" readonly/><br>
+                <label for="artistFirstName">Artist First Name:</label><br>
+                <input type="text" id=artistFirstName name="artistFirstName" th:value="${artist.firstName}"/><br>
+                <label for="artistLastName">Artist Last Name:</label><br>
+                <input type="text" id=artistLastName name="artistLastName" th:value="${artist.lastName}"/><br>
+                <input type="submit" value="Edit"/>
+            </form>
+        </div>
+
+        <div th:insert="fragments/footer :: footer"></div>
+    </div>
+</section>
+</body>
+</html>

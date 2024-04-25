@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/home.css" th:href="@{/css/home.css}"/>
+</head>
+<body>
+<section id="musicAlbum">
+    <div class="container">
+        <div th:insert="fragments/header :: header">
+            <h1>Music Albums</h1>
+        </div>
+        <div class="content">
+            <div class="tables">
+                <table border="1">
+                    <tr>
+                        <th>Album names</th>
+                        <th>Genres</th>
+                        <th>Release year</th>
+                        <th>Artists</th>
+                        <th>Groups</th>
+                        <th>Details</th>
+                    </tr>
+                    </tr>
+                    <tr th:each="albumAssignment : ${albumAssignments}">
+                        <td th:text="${albumAssignment.albumName}">Album name</td>
+                        <td th:text="${albumAssignment.genres}">Genres</td>
+                        <td th:text="${albumAssignment.releaseYear}">Release year</td>
+                        <td th:text="${albumAssignment.artistName}">Artist</td>
+                        <td th:text="${albumAssignment.groupName}">Group</td>
+                        <td>
+                            <form th:action="@{/albumassign}" method="post">
+                                <input type="hidden" name="detail" value="Details"/>
+                                <input type="hidden" name="albumId" th:value="${albumAssignment.id}"/>
+                                <button type="submit">Details</button>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <footer>
+            <div th:insert="~{fragments/footer :: footer}"></div>
+        </footer>
+    </div>
+</section>
+</body>
+</html>
+
+

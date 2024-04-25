@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Group</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/home.css" th:href="@{/css/home.css}"/>
+</head>
+<body>
+<section id="musicAlbum">
+    <div class="container">
+        <div th:insert="fragments/header :: header"></div>
+        <div class="addeditentity">
+            <form th:action="@{/groupEdit}" method="post">
+                <label for="groupId">Group Id:</label><br>
+                <input type="text" id=groupId name="groupId" th:value="${group.id}" readonly/><br>
+                <label for="groupName">Group name:</label><br>
+                <input type="text" id=groupName name="groupName" th:value="${group.groupName}"/><br>
+                <input type="submit" value="Edit"/>
+            </form>
+        </div>
+
+        <div th:insert="fragments/footer :: footer"></div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Song</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/home.css" th:href="@{/css/home.css}"/>
+</head>
+<section id="musicAlbum">
+    <div class="container">
+        <div th:insert="fragments/header :: header"></div>
+
+        <div class="addeditentity">
+            <!--            <p>Add new song:</p>-->
+            <form th:action="@{/songAdd}" method="post">
+                <label for="songName">Song Name:</label><br>
+                <input type="text" id="songName" name="songName" /><br>
+                <label for="durationMinutes">Duration Minutes:</label><br>
+                <input type="text" id="durationMinutes" name="durationMinutes" /><br>
+                <label for="durationSeconds">Duration Seconds:</label><br>
+                <input type="text" id="durationSeconds" name="durationSeconds" /><br>
+                <input type="submit" value="Add"/>
+            </form>
+        </div>
+
+        <footer>
+            <h3>Music Album &copy; 2023-2024</h3>
+        </footer>
+    </div>
+</section>
+</body>
+</html>

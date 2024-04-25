@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Genres</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/home.css" th:href="@{/css/home.css}"/>
+</head>
+<body>
+<section id="musicAlbum">
+    <div class="container">
+        <div th:insert="fragments/header :: header"></div>
+
+        <div class="tables">
+            <table border="1">
+                <caption>Genres</caption>
+                <tr>
+                    <th>Genre id</th>
+                    <th>Genre name</th>
+                    <th>Edit genre</th>
+                    <th>Remove genre</th>
+                </tr>
+                <tr th:each="genre : ${genres}">
+                    <td th:utext="${genre.id}">genreId</td>
+                    <td th:utext="${genre.name}">genreName</td>
+                    <td>
+                        <form th:action="@{/genreEditForm}" method="post">
+                            <input type="hidden" name="genreId"
+                                   th:value="${genre.id}"/>
+                            <input type="submit" value="Edit"/>
+                        </form>
+                    </td>
+                    <td>
+                        <form th:action="@{/genreRemove}" method="post">
+                            <input type="hidden" name="genreId"
+                                   th:value="${genre.id}"/>
+                            <input type="submit" value="Remove"/>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+            <a href="genreadd.html" th:href="@{/genreAddForm}" class="add-link">Add genre</a>
+            <div th:insert="fragments/footer :: footer"></div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

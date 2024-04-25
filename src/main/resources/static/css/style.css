@@ -1,0 +1,143 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Monserrat', sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+#musicAlbum {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    background: url('../images/firstpage.jpg') center/cover no-repeat;
+}
+
+#musicAlbum h1 {
+    font-family: 'Fantasy',  serif;
+    font-size: 2.5em;
+    font-weight: 250;
+    text-shadow: 2px 2px 4px rgb(7, 56, 38);
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2rem;
+}
+
+header.login {
+    width: 100%;
+    margin-bottom: 70px;
+}
+
+.content {
+    max-width: 340px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginform {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 100px;
+}
+
+
+.loginform input[type="text"],
+.loginform input[type="password"] {
+    width: calc(100% - 30px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid rgba(255, 255, 255, 0.98);
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+.loginform input[type="text"]:focus,
+.loginform input[type="password"]:focus {
+    border-color: #0d6541;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.66);
+    outline: none;
+}
+
+.loginform input[type="submit"] {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(7, 56, 38);
+    color: white;
+    cursor: pointer;
+}
+
+.loginform input[type="submit"]:hover {
+    background-color: #0d6541;
+}
+
+
+.registration-link{
+    position:fixed;
+    top: 30px;
+    right: 70px;
+    margin: 10px;
+    color: #ffffff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.registration-link:hover {
+    color: #229164;
+    text-decoration: underline;
+}
+
+.loginmessage {
+    color: #d51c16;
+    padding-left: 100px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.center-right {
+    position: absolute;
+    right: 0;
+    top: 40%;
+    transform: translateY(-50%);
+    text-align: right;
+    margin-right: 50px;
+    font-size: 3.5em;
+    font-weight: 400;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.75);
+}
+
+.center-right p {
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    animation: fadeIn 3s ease-in-out forwards;
+}
+
+.center-right p:nth-child(1) {
+    animation-delay: 1s;
+}
+
+.center-right p:nth-child(2) {
+    animation-delay: 3s;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 8;
+}
+

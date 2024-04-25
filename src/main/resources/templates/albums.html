@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Albums</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/home.css" th:href="@{/css/home.css}"/>
+</head>
+<body>
+<section id="musicAlbum">
+    <div class="container">
+        <div th:insert="fragments/header :: header"></div>
+
+        <div class="tables">
+            <table border="1">
+                <caption>Albums</caption>
+                <tr>
+                    <th>Album id</th>
+                    <th>Album name</th>
+                    <th>Release Year</th>
+                    <th>Edit album</th>
+                    <th>Remove album</th>
+                </tr>
+                <tr th:each="album : ${albums}">
+                    <td th:text="${album.id}">albumId</td>
+                    <td th:text="${album.albumName}">albumName</td>
+                    <td th:text="${album.releaseYear}">releaseYear</td>
+                    <td>
+                        <form th:action="@{/albumEditForm}" method="post">
+                            <input type="hidden" name="albumId" th:value="${album.id}"/>
+                            <input type="submit" value="Edit"/>
+                        </form>
+                    </td>
+                    <td>
+                        <form th:action="@{/albumRemove}" method="post">
+                            <input type="hidden" name="albumId" th:value="${album.id}"/>
+                            <input type="submit" value="Remove"/>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+
+            <a href="albumadd.html" th:href="@{/albumAddForm}" class="add-link">Add album</a>
+
+            <div th:insert="fragments/footer :: footer"></div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,216 @@
+body {
+    font-family: 'Monserrat', sans-serif;
+    color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
+}
+
+#musicAlbum {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    background-image: url('../images/n.jpg');
+    background-size: cover;
+    background-position: center;
+}
+header {
+    color: rgb(255, 255, 255);
+    padding: 10px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+header ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 15px 0;
+    display: flex;
+    gap: 30px;
+}
+
+header ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+header ul li a:hover {
+    text-decoration: underline;
+    color: rgb(13, 101, 65);
+}
+
+#musicAlbum h1 {
+    font-family: 'Montserrat', serif;
+    font-size: 3em;
+    font-weight: 250;
+    margin: 15px;
+}
+
+.header-form {
+    position: absolute;
+    top: 30px;
+    right: 140px;
+    margin: 0;
+}
+
+.logout-link {
+    position:fixed;
+    top: 30px;
+    right: 120px;
+    margin: 10px;
+    color: #ffffff;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    text-decoration: underline;
+}
+
+.logout-link:hover,
+.logout-link:focus {
+    color: #d01313;
+    text-decoration: underline;
+}
+
+
+.container {
+    width: 85%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table caption {
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+table th, table td {
+    text-align: left;
+    padding: 10px;
+}
+
+table th {
+    background-color: rgb(7, 56, 38);
+    font-family: 'Monserrat', sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+
+/* Edit button */
+input[type=submit][value=Edit] {
+    background-color: #204b39;
+    color: white;
+    padding: 8px 17px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Remove button */
+input[type=submit][value=Remove] {
+    background-color: #5f2a25;
+    color: white;
+    padding: 8px 17px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Hover effects for both buttons */
+input[type=submit]:hover {
+    opacity: 0.8;
+}
+
+/* Add button */
+a.add-link {
+    background-color: rgb(23 23 23);
+    color: #ffffff;
+    padding: 20px;
+    text-decoration: underline;
+    font-size: 17px;
+    display: inline-block;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect add button */
+a.add-link:hover {
+    color: #204b39;
+    text-decoration: none;
+}
+
+.addeditentity {
+    width: 50%;
+    margin: 0 auto;
+    color: #eee;
+    background-color: #171717;
+    padding: 30px;
+    border-radius: 6px;
+    font-family: 'Monserrat', sans-serif;
+    box-shadow: 0 1px 3px rgb(13 59 42);
+}
+
+.addeditentity label {
+    display: block;
+    margin-bottom: 0.1em;
+    font-size: 14px;
+}
+
+.addeditentity input[type="text"],
+.addeditentity input[type="number"] {
+    display: block;
+    width: 40%;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #f0e8e8;
+    border:1px solid rgb(13 59 42);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.addeditentity input[type="submit"] {
+    cursor: pointer;
+    background-color: rgb(7, 56, 38);
+    color: #FFF;
+    border: none;
+    padding: 10px 30px;
+    font-size: 15px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.addeditentity input[type="text"]:hover,
+.addeditentity input[type="number"]:hover,
+.addeditentity input[type="text"]:focus,
+.addeditentity input[type="number"]:focus {
+    border-color: rgb(13 59 42);
+}
+
+.addeditentity input[type="submit"]:hover {
+    background-color: #0d6541;
+
+}
+
+footer {
+    position: static;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+    font-weight: bold;
+}
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Songs</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/home.css" th:href="@{/css/home.css}"/>
+</head>
+<body>
+<section id="musicAlbum">
+    <div class="container">
+        <div th:insert="fragments/header :: header"></div>
+        <div class="tables">
+            <table border="1">
+                <caption>Songs</caption>
+                <tr>
+                    <th>Song id</th>
+                    <th>Song name</th>
+                    <th>Duration minutes</th>
+                    <th>Duration seconds</th>
+                    <th>Edit song</th>
+                    <th>Remove song</th>
+                </tr>
+                <tr th:each="song : ${songs}">
+                    <td th:utext="${song.id}">songId</td>
+                    <td th:utext="${song.songName}">songName</td>
+                    <td th:utext="${song.durationMinutes}">durationMinutes</td>
+                    <td th:utext="${song.durationSeconds}">durationMinutes</td>
+                    <td>
+                        <form th:action="@{/songEditForm}" method="post">
+                            <input type="hidden" name="songId"
+                                   th:value="${song.id}"/>
+                            <input type="submit" value="Edit"/>
+                        </form>
+                    </td>
+                    <td>
+                        <form th:action="@{/songRemove}" method="post">
+                            <input type="hidden" name="songId"
+                                   th:value="${song.id}"/>
+                            <input type="submit" value="Remove"/>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+
+            <a href="songadd.html" th:href="@{/songAddForm}" class="add-link">Add song</a>
+
+            <div th:insert="fragments/footer :: footer"></div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

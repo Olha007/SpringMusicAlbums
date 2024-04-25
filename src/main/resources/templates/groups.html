@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Groups</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/home.css" th:href="@{/css/home.css}"/>
+</head>
+<body>
+<section id="musicAlbum">
+    <div class="container">
+        <div th:insert="fragments/header :: header"></div>
+
+        <div class="tables">
+            <table border="1">
+                <caption>Groups</caption>
+                <tr>
+                    <th>Group id</th>
+                    <th>Group name</th>
+                    <th>Edit group</th>
+                    <th>Remove group</th>
+                </tr>
+                <tr th:each="group : ${groups}">
+                    <td th:utext="${group.id}">groupId</td>
+                    <td th:utext="${group.groupName}">groupName</td>
+                    <td>
+                        <form th:action="@{/groupEditForm}" method="post">
+                            <input type="hidden" name="groupId"
+                                   th:value="${group.id}"/>
+                            <input type="submit" value="Edit"/>
+                        </form>
+                    </td>
+                    <td>
+                        <form th:action="@{/groupRemove}" method="post">
+                            <input type="hidden" name="groupId"
+                                   th:value="${group.id}"/>
+                            <input type="submit" value="Remove"/>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+            <a href="groupadd.html" th:href="@{/groupAddForm}" class="add-link">Add group</a>
+            <div th:insert="fragments/footer :: footer"></div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

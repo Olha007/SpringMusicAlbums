@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Genre</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/home.css" th:href="@{/css/home.css}"/>
+</head>
+<body>
+<section id="musicAlbum">
+    <div class="container">
+        <div th:insert="fragments/header :: header"></div>
+        <div class="addeditentity">
+            <form th:action="@{/genreEdit}" method="post">
+                <label for="genreId">Genre Id:</label><br>
+                <input type="text" id=genreId name="genreId" th:value="${genre.id}" readonly/><br>
+                <label for="genreName">Genre name:</label><br>
+                <input type="text" id=genreName name="genreName" th:value="${genre.name}"/><br>
+                <input type="submit" value="Edit"/>
+            </form>
+        </div>
+
+        <div th:insert="fragments/footer :: footer"></div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Music Album - Registration</title>
+    <link type="text/css" media="all" href="css/style.css" rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+</head>
+<body>
+<section id="musicAlbum">
+    <div class="container">
+        <header class="login">
+            <h1 style="margin-left: 100px;">Music Albums</h1>
+        </header>
+        <blockquote class="center-right">
+            <p>"Where words fail</p>
+            <p>music speaks"</p>
+        </blockquote>
+        <div class="content">
+            <div class="companyname">
+            </div>
+            <div class="loginform">
+                <form action="registration" method="post">
+                    <p>Username: <input type="text" name="username"/></p>
+                    <p>Password: <input type="password" name="password"/></p>
+                    <p><input type="submit" value="Registration" style="float: left"/></p>
+                </form>
+            </div>
+            <h3 th:text="${message}" class="loginmessage"></h3>
+        </div>
+            </div>
+            <div class="registration">
+                <a href="login.html" th:href="@{/login}" class="registration-link">Login</a>
+            </div>
+        </div>
+        <footer>
+            <h3>Music albums &copy; 2023-2024</h3>
+        </footer>
+    </div>
+</section>
+</body>
+</html>
