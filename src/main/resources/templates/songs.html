@@ -18,6 +18,7 @@
                     <th>Song name</th>
                     <th>Duration minutes</th>
                     <th>Duration seconds</th>
+                    <th>Genre</th>
                     <th>Edit song</th>
                     <th>Remove song</th>
                 </tr>
@@ -26,8 +27,11 @@
                     <td th:utext="${song.songName}">songName</td>
                     <td th:utext="${song.durationMinutes}">durationMinutes</td>
                     <td th:utext="${song.durationSeconds}">durationMinutes</td>
+                    <td th:utext="${song.genre.name}">genre</td>
                     <td>
                         <form th:action="@{/songEditForm}" method="post">
+                            <input type="hidden" name="action"
+                                   value="songEdit"/>
                             <input type="hidden" name="songId"
                                    th:value="${song.id}"/>
                             <input type="submit" value="Edit"/>
@@ -35,6 +39,8 @@
                     </td>
                     <td>
                         <form th:action="@{/songRemove}" method="post">
+                            <input type="hidden" name="action"
+                                   value="songRemove"/>
                             <input type="hidden" name="songId"
                                    th:value="${song.id}"/>
                             <input type="submit" value="Remove"/>

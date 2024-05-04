@@ -11,7 +11,7 @@
         <div th:insert="fragments/header :: header"></div>
 
         <div class="addeditentity">
-            <!--            <p>Add new song:</p>-->
+<!--            <p>Add new song:</p>-->
             <form th:action="@{/songAdd}" method="post">
                 <label for="songName">Song Name:</label><br>
                 <input type="text" id="songName" name="songName" /><br>
@@ -19,6 +19,12 @@
                 <input type="text" id="durationMinutes" name="durationMinutes" /><br>
                 <label for="durationSeconds">Duration Seconds:</label><br>
                 <input type="text" id="durationSeconds" name="durationSeconds" /><br>
+                <label for="selectedGenre">Genre:</label><br>
+                <select id="selectedGenre" name="selectedGenre">
+                    <option value="0">Select genre</option>
+                    <option th:each="genre : ${genres}" th:value="${genre.id}"
+                            th:text="${genre}"></option>
+                </select>
                 <input type="submit" value="Add"/>
             </form>
         </div>

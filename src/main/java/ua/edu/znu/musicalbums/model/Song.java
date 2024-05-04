@@ -15,6 +15,7 @@ public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "song_id", nullable = false)
+    @ToString.Exclude
     private Long id;
 
     @Column(name = "song_name", nullable = false)
@@ -36,5 +37,4 @@ public class Song {
     @EqualsAndHashCode.Exclude
     @ManyToMany(mappedBy = "songs", cascade = CascadeType.PERSIST)
     private Set<Album> albums = new LinkedHashSet<>();
-
 }

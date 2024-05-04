@@ -4,12 +4,144 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit Album</title>
-    <link rel="stylesheet" type="text/css" media="all" href="../../css/style.css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/home.css" th:href="@{/css/home.css}"/>
 </head>
 <body>
 <section id="musicAlbum">
     <div class="container">
-
+        <div th:insert="fragments/header :: header"></div>
+        <div class="tables">
+            <div class="selectartists">
+                <h1>Edit album <span th:text="${album.albumName}"></span></h1>
+                <table border="1">
+                    <caption>Album artists:</caption>
+                    <tr>
+                        <th>Album artists</th>
+                        <th>Add album artist</th>
+                        <th>Remove album artist</th>
+                    </tr>
+                    <tr>
+<!--                        <td th:if="${albumArtists.empty}">No Album Artists </td>-->
+                        <td>
+                            <th:block th:each="artist : ${albumArtists}" th:text="${artist}"></th:block>
+                        </td>
+                        <td>
+                            <form th:action="@{/albumassign}" method="post">
+                                <select name="selectedArtist">
+                                    <option value="0">Select artist</option>
+                                    <option th:each="artist : ${otherArtists}" th:value="${artist.id}"
+                                            th:text="${artist}"></option>
+                                </select>
+                                <input type="hidden" name="action"
+                                       value="assignArtist"/>
+                                <input type="hidden" name="albumId"
+                                       th:value="${album.id}"/>
+                                <input type="submit" value="Assign"/>
+                            </form>
+                        </td>
+                        <td>
+                            <form th:action="@{/albumassign}" method="post">
+                                <select name="selectedArtist">
+                                    <option value="0">Select artist</option>
+                                    <option th:each="artist : ${albumArtists}" th:value="${artist.id}"
+                                            th:text="${artist}"></option>
+                                </select>
+                                <input type="hidden" name="action"
+                                       value="removeArtist"/>
+                                <input type="hidden" name="albumId"
+                                       th:value="${album.id}"/>
+                                <input type="submit" value="Remove"/>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+                <table border="1">
+                    <caption>Album groups:</caption>
+                    <tr>
+                        <th>Album groups</th>
+                        <th>Add album group</th>
+                        <th>Remove album group</th>
+                    </tr>
+                    <tr>
+<!--                        <td th:if="${albumGroups.empty}">No Album Groups </td>-->
+                        <td>
+                            <th:block th:each="group : ${albumGroups}" th:text="${group}"></th:block>
+                        </td>
+                        <td>
+                            <form th:action="@{/albumassign}" method="post">
+                                <select name="selectedGroup">
+                                    <option value="0">Select group</option>
+                                    <option th:each="group : ${otherGroups}" th:value="${group.id}"
+                                            th:text="${group}"></option>
+                                </select>
+                                <input type="hidden" name="action"
+                                       value="assignGroup"/>
+                                <input type="hidden" name="albumId"
+                                       th:value="${album.id}"/>
+                                <input type="submit" value="Assign"/>
+                            </form>
+                        </td>
+                        <td>
+                            <form th:action="@{/albumassign}" method="post">
+                                <select name="selectedGroup">
+                                    <option value="0">Select group</option>
+                                    <option th:each="group : ${albumGroups}" th:value="${group.id}"
+                                            th:text="${group}"></option>
+                                </select>
+                                <input type="hidden" name="action"
+                                       value="removeGroup"/>
+                                <input type="hidden" name="albumId"
+                                       th:value="${album.id}"/>
+                                <input type="submit" value="Remove"/>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+                <table border="1">
+                    <caption>Album songs:</caption>
+                    <tr>
+                        <th>Album songs</th>
+                        <th>Add album song</th>
+                        <th>Remove album song</th>
+                    </tr>
+                    <tr>
+<!--                        <td th:if="${albumSongs.empty}">No Album Songs </td>-->
+                        <td>
+                            <th:block th:each="song : ${albumSongs}" th:text="${song}"></th:block>
+                        </td>
+                        <td>
+                            <form th:action="@{/albumassign}" method="post">
+                                <select name="selectedSong">
+                                    <option value="0">Select song</option>
+                                    <option th:each="song : ${otherSongs}" th:value="${song.id}"
+                                            th:text="${song}"></option>
+                                </select>
+                                <input type="hidden" name="action"
+                                       value="assignSong"/>
+                                <input type="hidden" name="albumId"
+                                       th:value="${album.id}"/>
+                                <input type="submit" value="Assign"/>
+                            </form>
+                        </td>
+                        <td>
+                            <form th:action="@{/albumassign}" method="post">
+                                <select name="selectedSong">
+                                    <option value="0">Select song</option>
+                                    <option th:each="song : ${albumSongs}" th:value="${song.id}"
+                                            th:text="${song}"></option>
+                                </select>
+                                <input type="hidden" name="action"
+                                       value="removeSong"/>
+                                <input type="hidden" name="albumId"
+                                       th:value="${album.id}"/>
+                                <input type="submit" value="Remove"/>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div th:insert="fragments/footer :: footer"></div>
     </div>
 </section>
 </body>
