@@ -12,18 +12,24 @@
         <div th:insert="fragments/header :: header"></div>
         <div class="addeditentity">
             <form th:action="@{/songEdit}" method="post">
-                <label for="songId">Song Id:</label><br>
-                <input type="text" id=songId name="songId" th:value="${song.id}" readonly/><br>
+                <input type="hidden" name="action"
+                       value="songEdit"/>
+                <input type="hidden" name="songId" th:value="${song.id}"/>
                 <label for="songName">Song name:</label><br>
                 <input type="text" id=songName name="songName" th:value="${song.songName}"/><br>
                 <label for="durationMinutes">Song duration minutes:</label><br>
                 <input type="text" id=durationMinutes name="durationMinutes" th:value="${song.durationMinutes}"/><br>
                 <label for="durationSeconds">Song duration seconds:</label><br>
                 <input type="text" id=durationSeconds name="durationSeconds" th:value="${song.durationSeconds}"/><br>
+                <label for="selectedGenre">Genre:</label>
+                <select id="selectedGenre" name="genreId" class="custom-select">
+                    <option value="0">Select genre</option>
+                    <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.name}"></option>
+                </select>
+                <span style="display: inline-block; width: 10px;"></span>
                 <input type="submit" value="Edit"/>
             </form>
         </div>
-
         <div th:insert="fragments/footer :: footer"></div>
     </div>
 </section>

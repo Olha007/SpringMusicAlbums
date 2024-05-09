@@ -10,4 +10,5 @@ public class AlbumAssignment {
     private Integer releaseYear;
     private String artistName;
     private String groupName;
+    private String songs;
 }

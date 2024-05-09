@@ -9,17 +9,29 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ua.edu.znu.musicalbums.model.Artist;
 import ua.edu.znu.musicalbums.repository.ArtistRepository;
 
+
 @Controller
 public class ArtistsController {
     @Autowired
     private ArtistRepository artistRepository;
 
-    @GetMapping("/artists")
-    public String artists(Model model) {
-        Iterable<Artist> artists = artistRepository.findAll();
-        model.addAttribute("artists", artists);
-        return "artists";
+//    @GetMapping("/artists")
+//    public String artists(Model model) {
+//        Iterable<Artist> artists = artistRepository.findAll();
+//        model.addAttribute("artists", artists);
+//        return "artists";
+//    }
+@GetMapping("/artists")
+public String artists(@RequestParam(required = false) String search, Model model) {
+    Iterable<Artist> artists;
+    if (search != null && !search.isEmpty()) {
+        artists = artistRepository.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(search, search);
+    } else {
+        artists = artistRepository.findAll();
     }
+    model.addAttribute("artists", artists);
+    return "artists";
+}
 
     @PostMapping("/artistEditForm")
     public String artistEditForm(@RequestParam Long artistId, Model model) {
@@ -30,7 +42,7 @@ public class ArtistsController {
 
     @PostMapping("/artistEdit")
     public String artistEdit(@RequestParam Long artistId, @RequestParam String artistFirstName,
-                            @RequestParam String artistLastName, Model model) {
+                             @RequestParam String artistLastName, Model model) {
         Artist artist = artistRepository.findById(artistId).orElse(new Artist());
         artist.setFirstName(artistFirstName);
         artist.setLastName(artistLastName);

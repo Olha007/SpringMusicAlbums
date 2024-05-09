@@ -1,13 +1,11 @@
 package ua.edu.znu.musicalbums.model;
 
-import jakarta.persistence.*;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import jakarta.persistence.*;
 
 @Data
 @Entity

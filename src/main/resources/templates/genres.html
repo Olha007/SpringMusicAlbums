@@ -10,7 +10,10 @@
 <section id="musicAlbum">
     <div class="container">
         <div th:insert="fragments/header :: header"></div>
-
+        <form th:action="@{/genres}" method="get" class="search-form">
+            <input type="text" name="search" placeholder="Search by genre..." class="search-input"/>
+            <input type="submit" value="Search" class="search-button"/>
+        </form>
         <div class="tables">
             <table border="1">
                 <caption>Genres</caption>

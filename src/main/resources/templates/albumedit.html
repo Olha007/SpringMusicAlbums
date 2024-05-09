@@ -12,18 +12,16 @@
         <div th:insert="fragments/header :: header"></div>
         <div class="addeditentity">
             <form th:action="@{/albumEdit}" method="post">
-                <label for="albumId">Album Id:</label><br>
-                <input type="text" id=albumId name="albumId" th:value="${album.id}" readonly/><br>
+                <input type="hidden" name="albumId" th:value="${album.id}"/>
                 <label for="albumName">Album name:</label><br>
                 <input type="text" id=albumName name="albumName" th:value="${album.albumName}"/><br>
-                <label for="releaseYear">Release Year:</label><br>
-                <input type="text" id=releaseYear name="releaseYear" th:value="${album.releaseYear}"/><br>
+                <label for="albumReleaseYear">Release Year:</label><br>
+                <input type="text" id=albumReleaseYear name="albumReleaseYear" th:value="${album.releaseYear}"/><br>
                 <input type="submit" value="Edit"/>
             </form>
         </div>
-
-        <div th:insert="fragments/footer :: footer"></div>
-    </div>
+<div th:insert="fragments/footer :: footer"></div>
+</div>
 </section>
 </body>
 </html>

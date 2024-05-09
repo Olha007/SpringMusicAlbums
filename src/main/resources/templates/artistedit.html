@@ -12,8 +12,7 @@
         <div th:insert="fragments/header :: header"></div>
         <div class="addeditentity">
             <form th:action="@{/artistEdit}" method="post">
-                <label for="artistId">Artist Id:</label><br>
-                <input type="text" id=artistId name="artistId" th:value="${artist.id}" readonly/><br>
+                <input type="hidden" name="artistId" th:value="${artist.id}"/>
                 <label for="artistFirstName">Artist First Name:</label><br>
                 <input type="text" id=artistFirstName name="artistFirstName" th:value="${artist.firstName}"/><br>
                 <label for="artistLastName">Artist Last Name:</label><br>

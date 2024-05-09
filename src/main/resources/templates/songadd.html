@@ -9,20 +9,23 @@
 <section id="musicAlbum">
     <div class="container">
         <div th:insert="fragments/header :: header"></div>
-
         <div class="addeditentity">
-            <!--            <p>Add new song:</p>-->
             <form th:action="@{/songAdd}" method="post">
                 <label for="songName">Song Name:</label><br>
-                <input type="text" id="songName" name="songName" /><br>
+                <input type="text" id="songName" name="songName"/><br>
                 <label for="durationMinutes">Duration Minutes:</label><br>
-                <input type="text" id="durationMinutes" name="durationMinutes" /><br>
+                <input type="text" id="durationMinutes" name="durationMinutes"/><br>
                 <label for="durationSeconds">Duration Seconds:</label><br>
-                <input type="text" id="durationSeconds" name="durationSeconds" /><br>
+                <input type="text" id="durationSeconds" name="durationSeconds"/><br>
+                <label for="selectedGenre">Genre:</label>
+                <select id="selectedGenre" name="genreId" class="custom-select">
+                    <option value="0">Select genre</option>
+                    <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.name}"></option>
+                </select>
+                <span style="display: inline-block; width: 10px;"></span>
                 <input type="submit" value="Add"/>
             </form>
         </div>
-
         <footer>
             <h3>Music Album &copy; 2023-2024</h3>
         </footer>

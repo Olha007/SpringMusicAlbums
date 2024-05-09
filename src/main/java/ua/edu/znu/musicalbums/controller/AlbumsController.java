@@ -16,10 +16,23 @@ public class AlbumsController {
     private AlbumRepository albumRepository;
 
     @GetMapping("/albums")
-    public String albums(Model model) {
-        Iterable<Album> albums = albumRepository.findAll();
+    public String albums(@RequestParam(required = false) String search, Model model) {
+        Iterable<Album> albums;
+        if (search != null && !search.isEmpty()) {
+            albums = albumRepository.findByAlbumNameContainingIgnoreCaseOrReleaseYear(search, parseReleaseYear(search));
+        } else {
+            albums = albumRepository.findAll();
+        }
         model.addAttribute("albums", albums);
         return "albums";
+    }
+
+    private Integer parseReleaseYear(String search) {
+        try {
+            return Integer.parseInt(search);
+        } catch (NumberFormatException e) {
+            return null;
+        }
     }
 
     @PostMapping("/albumEditForm")
@@ -38,6 +51,7 @@ public class AlbumsController {
         albumRepository.save(album);
         return "redirect:/albums";
     }
+
 
     @PostMapping("/albumRemove")
     public String albumRemove(@RequestParam Long albumId) {
@@ -59,3 +73,4 @@ public class AlbumsController {
         return "redirect:/albums";
     }
 }
+

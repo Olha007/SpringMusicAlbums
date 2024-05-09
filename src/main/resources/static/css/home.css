@@ -7,26 +7,26 @@ body {
 
 #musicAlbum {
     display: flex;
-    align-items: center;
     justify-content: flex-start;
+    align-items: center;
     min-height: 100vh;
     background-image: url('../images/n.jpg');
     background-size: cover;
     background-position: center;
 }
+
 header {
     color: rgb(255, 255, 255);
-    padding: 10px 40px;
+    /*padding: 10px 40px;*/
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /*align-items: center;*/
 }
-
 
 header ul {
     list-style-type: none;
     padding: 0;
-    margin: 15px 0;
+    margin: 35px 0;
     display: flex;
     gap: 30px;
 }
@@ -39,14 +39,17 @@ header ul li a {
 
 header ul li a:hover {
     text-decoration: underline;
-    color: rgb(13, 101, 65);
+    color: rgb(23, 168, 114);
 }
 
 #musicAlbum h1 {
+    position: absolute;
+    top: 10px;
+    right: 120px;
     font-family: 'Montserrat', serif;
     font-size: 3em;
     font-weight: 250;
-    margin: 15px;
+    /*margin: 15px;*/
 }
 
 .header-form {
@@ -55,27 +58,6 @@ header ul li a:hover {
     right: 140px;
     margin: 0;
 }
-
-.logout-link {
-    position:fixed;
-    top: 30px;
-    right: 120px;
-    margin: 10px;
-    color: #ffffff;
-    background-color: transparent;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    text-decoration: underline;
-}
-
-.logout-link:hover,
-.logout-link:focus {
-    color: #d01313;
-    text-decoration: underline;
-}
-
 
 .container {
     width: 85%;
@@ -107,10 +89,19 @@ table th {
     color: rgb(255, 255, 255);
 }
 
+input[type=submit][value=Add] {
+    background-color: #0d6541;
+    color: white;
+    padding: 8px 17px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
 
 /* Edit button */
 input[type=submit][value=Edit] {
-    background-color: #204b39;
+    background-color: #0d6541;
     color: white;
     padding: 8px 17px;
     border: none;
@@ -121,7 +112,7 @@ input[type=submit][value=Edit] {
 
 /* Remove button */
 input[type=submit][value=Remove] {
-    background-color: #5f2a25;
+    background-color: #7c2a21;
     color: white;
     padding: 8px 17px;
     border: none;
@@ -177,7 +168,7 @@ a.add-link:hover {
     padding: 12px;
     margin-bottom: 10px;
     background: #f0e8e8;
-    border:1px solid rgb(13 59 42);
+    border: 1px solid rgb(13 59 42);
     border-radius: 4px;
     box-sizing: border-box;
 }
@@ -202,7 +193,36 @@ a.add-link:hover {
 
 .addeditentity input[type="submit"]:hover {
     background-color: #0d6541;
+}
 
+.custom-select {
+    width: 140px;
+    height: 30px;
+}
+
+.search-input {
+    width: 180px;
+    padding: 8px;
+    border: 1px #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.search-button {
+    background-color: rgb(13, 101, 65);
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: rgb(29, 133, 91);
 }
 
 footer {

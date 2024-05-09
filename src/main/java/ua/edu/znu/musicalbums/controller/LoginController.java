@@ -58,7 +58,6 @@ public class LoginController {
         }
     }
 
-
     @RequestMapping("/home")
     public String home(Model model) {
         Iterable<Album> albums = albumRepository.findAll();
@@ -68,14 +67,20 @@ public class LoginController {
             albumAssignment .setId(album.getId());
             albumAssignment .setAlbumName(album.getAlbumName());
             Set<Song> songs = album.getSongs();
+            StringBuilder songsNames = new StringBuilder();
+            for (Song song : songs) {
+                if (song.getSongName() != null)
+                    songsNames.append(song.getSongName()).append(", ");
+            }
+            albumAssignment.setSongs(songsNames.toString());
             StringBuilder genres = new StringBuilder();
             for (Song song : songs) {
-                genres.append(song.getGenre().getName()).append(", ");
-
+                if (song.getGenre() != null)
+                    genres.append(song.getGenre().getName()).append(", ");
             }
-            albumAssignment .setGenres(genres.toString());
 
-            albumAssignment .setReleaseYear(album.getReleaseYear());
+            albumAssignment.setGenres(genres.toString());
+            albumAssignment.setReleaseYear(album.getReleaseYear());
             Collection<AlbumArtistGroup> albumArtistGroups = album.getAlbumArtistGroups();
             StringBuilder artists = new StringBuilder();
             for (AlbumArtistGroup albumArtistGroup : albumArtistGroups) {
@@ -84,7 +89,7 @@ public class LoginController {
                     artists.append(artist.getFirstName()).append(", ").append(artist.getLastName()).append("; ");
                 }
             }
-            albumAssignment .setArtistName(artists.toString());
+            albumAssignment.setArtistName(artists.toString());
             StringBuilder groups = new StringBuilder();
             for (AlbumArtistGroup albumArtistGroup : albumArtistGroups) {
                 if (albumArtistGroup.getGroup() != null) {
@@ -92,7 +97,7 @@ public class LoginController {
                 }
             }
             albumAssignment.setGroupName(groups.toString());
-            albumAssignments.add(albumAssignment );
+            albumAssignments.add(albumAssignment);
         }
 
         model.addAttribute("albumAssignments", albumAssignments);

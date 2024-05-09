@@ -4,5 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 import ua.edu.znu.musicalbums.model.User;
 
 public interface UserRepository extends CrudRepository<User, Long> {
-    User findByUsername(String username);
+    User findByUsername(final String username);
 }

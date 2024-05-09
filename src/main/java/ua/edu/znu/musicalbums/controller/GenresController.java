@@ -14,9 +14,21 @@ public class GenresController {
     @Autowired
     private GenreRepository genreRepository;
 
+//    @GetMapping("/genres")
+//    public String genres(Model model) {
+//        Iterable<Genre> genres = genreRepository.findAll();
+//        model.addAttribute("genres", genres);
+//        return "genres";
+//    }
+
     @GetMapping("/genres")
-    public String genres(Model model) {
-        Iterable<Genre> genres = genreRepository.findAll();
+    public String genres(@RequestParam(required = false) String search, Model model) {
+        Iterable<Genre> genres;
+        if (search != null && !search.isEmpty()) {
+            genres = genreRepository.findByNameContainingIgnoreCase(search);
+        } else {
+            genres = genreRepository.findAll();
+        }
         model.addAttribute("genres", genres);
         return "genres";
     }

@@ -11,14 +11,25 @@ import ua.edu.znu.musicalbums.repository.GroupRepository;
 
 @Controller
 public class GroupsController {
-
     @Autowired
     private GroupRepository groupRepository;
 
+//    @GetMapping("/groups")
+//    public String groups(Model model) {
+//        Iterable<Group> groups = groupRepository.findAll();
+//        model.addAttribute("groups", groups);
+//        return "groups";
+//    }
+
     @GetMapping("/groups")
-    public String groups(Model model) {
-        Iterable<Group> artists = groupRepository.findAll();
-        model.addAttribute("groups", artists);
+    public String groups(@RequestParam(required = false) String search, Model model) {
+        Iterable<Group> groups;
+        if (search != null && !search.isEmpty()) {
+            groups = groupRepository.findByGroupNameContainingIgnoreCase(search);
+        } else {
+            groups = groupRepository.findAll();
+        }
+        model.addAttribute("groups", groups);
         return "groups";
     }
 
