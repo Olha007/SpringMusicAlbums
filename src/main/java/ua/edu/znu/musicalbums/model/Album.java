@@ -5,6 +5,7 @@ import lombok.*;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.Set;
+
 import jakarta.persistence.*;
 
 @Data
@@ -19,11 +20,13 @@ public class Album {
     private String albumName;
     @Column(name = "release_year", nullable = false)
     private Integer releaseYear;
+
     @ManyToMany
     @JoinTable(name = "album_songs",
             joinColumns = @JoinColumn(name = "album_id"),
             inverseJoinColumns = @JoinColumn(name = "song_id"))
     private Set<Song> songs = new LinkedHashSet<>();
+
 
     @OneToMany(mappedBy = "album", cascade = CascadeType.PERSIST, orphanRemoval = true)
     @ToString.Exclude

@@ -47,7 +47,7 @@ header ul li a:hover {
     top: 10px;
     right: 120px;
     font-family: 'Montserrat', serif;
-    font-size: 3em;
+    font-size: 3.5em;
     font-weight: 250;
     /*margin: 15px;*/
 }
@@ -73,7 +73,7 @@ table {
 }
 
 table caption {
-    font-size: 30px;
+    font-size: 20px;
     margin-bottom: 15px;
     color: #ffffff;
 }
@@ -146,9 +146,9 @@ a.add-link:hover {
 
 .addeditentity {
     width: 50%;
-    margin: 0 auto;
+    /*margin:  auto;*/
     color: #eee;
-    background-color: #171717;
+    background-color: rgba(24, 24, 24, 0.87);
     padding: 30px;
     border-radius: 6px;
     font-family: 'Monserrat', sans-serif;
