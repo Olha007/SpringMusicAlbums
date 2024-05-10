@@ -13,10 +13,7 @@ import ua.edu.znu.musicalbums.model.DTO.AlbumAssignment;
 import ua.edu.znu.musicalbums.repository.AlbumRepository;
 import ua.edu.znu.musicalbums.repository.UserRepository;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Controller
 public class LoginController {
@@ -73,10 +70,11 @@ public class LoginController {
                     songsNames.append(song.getSongName()).append(", ");
             }
             albumAssignment.setSongs(songsNames.toString());
-            StringBuilder genres = new StringBuilder();
+            StringJoiner genres = new StringJoiner(", ");
+//            StringBuilder genres = new StringBuilder();
             for (Song song : songs) {
                 if (song.getGenre() != null)
-                    genres.append(song.getGenre().getName()).append(", ");
+                    genres.add(song.getGenre().getName());
             }
 
             albumAssignment.setGenres(genres.toString());
