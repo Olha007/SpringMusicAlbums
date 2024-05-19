@@ -13,10 +13,7 @@ import ua.edu.znu.musicalbums.model.DTO.AlbumAssignment;
 import ua.edu.znu.musicalbums.repository.AlbumRepository;
 import ua.edu.znu.musicalbums.repository.UserRepository;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Controller
 public class LoginController {
@@ -67,33 +64,37 @@ public class LoginController {
             albumAssignment .setId(album.getId());
             albumAssignment .setAlbumName(album.getAlbumName());
             Set<Song> songs = album.getSongs();
-            StringBuilder songsNames = new StringBuilder();
+//            StringBuilder songsNames = new StringBuilder();
+            StringJoiner songsNames = new StringJoiner(", ");
             for (Song song : songs) {
                 if (song.getSongName() != null)
-                    songsNames.append(song.getSongName()).append(", ");
+                    songsNames.add(song.getSongName());
             }
             albumAssignment.setSongs(songsNames.toString());
             StringBuilder genres = new StringBuilder();
             for (Song song : songs) {
                 if (song.getGenre() != null)
-                    genres.append(song.getGenre().getName()).append(", ");
+                    genres.append(song.getGenre().getName());
             }
 
             albumAssignment.setGenres(genres.toString());
             albumAssignment.setReleaseYear(album.getReleaseYear());
             Collection<AlbumArtistGroup> albumArtistGroups = album.getAlbumArtistGroups();
-            StringBuilder artists = new StringBuilder();
+//            StringBuilder artists = new StringBuilder();
+            StringJoiner artists = new StringJoiner(", ");
             for (AlbumArtistGroup albumArtistGroup : albumArtistGroups) {
                 Artist artist = albumArtistGroup.getArtist();
                 if (artist != null) {
-                    artists.append(artist.getFirstName()).append(", ").append(artist.getLastName()).append("; ");
+                    artists.add(artist.getFirstName() + " " + artist.getLastName());
                 }
             }
+
             albumAssignment.setArtistName(artists.toString());
-            StringBuilder groups = new StringBuilder();
+            StringJoiner groups = new StringJoiner(", ");
+//            StringBuilder groups = new StringBuilder();
             for (AlbumArtistGroup albumArtistGroup : albumArtistGroups) {
                 if (albumArtistGroup.getGroup() != null) {
-                    groups.append(albumArtistGroup.getGroup().getGroupName());
+                    groups.add(albumArtistGroup.getGroup().getGroupName());
                 }
             }
             albumAssignment.setGroupName(groups.toString());
