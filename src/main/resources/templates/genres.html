@@ -18,13 +18,13 @@
             <table border="1">
                 <caption>Genres</caption>
                 <tr>
-                    <th>Genre id</th>
+<!--                    <th>Genre id</th>-->
                     <th>Genre name</th>
                     <th>Edit genre</th>
                     <th>Remove genre</th>
                 </tr>
                 <tr th:each="genre : ${genres}">
-                    <td th:utext="${genre.id}">genreId</td>
+<!--                    <td th:utext="${genre.id}">genreId</td>-->
                     <td th:utext="${genre.name}">genreName</td>
                     <td>
                         <form th:action="@{/genreEditForm}" method="post">

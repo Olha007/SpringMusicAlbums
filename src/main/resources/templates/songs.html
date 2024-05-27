@@ -18,7 +18,7 @@
             <table border="1">
                 <caption>Songs</caption>
                 <tr>
-                    <th>Song id</th>
+<!--                    <th>Song id</th>-->
                     <th>Song name</th>
                     <th>Duration minutes</th>
                     <th>Duration seconds</th>
@@ -27,7 +27,7 @@
                     <th>Remove song</th>
                 </tr>
                 <tr th:each="song : ${songs}">
-                    <td th:utext="${song.id}">songId</td>
+<!--                    <td th:utext="${song.id}">songId</td>-->
                     <td th:utext="${song.songName}">songName</td>
                     <td th:utext="${song.durationMinutes}">durationMinutes</td>
                     <td th:utext="${song.durationSeconds}">durationSecondss</td>

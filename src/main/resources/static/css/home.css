@@ -17,10 +17,8 @@ body {
 
 header {
     color: rgb(255, 255, 255);
-    /*padding: 10px 40px;*/
     display: flex;
     flex-direction: column;
-    /*align-items: center;*/
 }
 
 header ul {
@@ -223,6 +221,11 @@ a.add-link:hover {
 
 .search-button:hover {
     background-color: rgb(29, 133, 91);
+}
+
+.errormessage {
+    color: #d51c16;
+    padding-left: 100px;
 }
 
 footer {

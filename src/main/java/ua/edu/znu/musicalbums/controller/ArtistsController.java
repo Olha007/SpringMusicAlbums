@@ -15,23 +15,17 @@ public class ArtistsController {
     @Autowired
     private ArtistRepository artistRepository;
 
-//    @GetMapping("/artists")
-//    public String artists(Model model) {
-//        Iterable<Artist> artists = artistRepository.findAll();
-//        model.addAttribute("artists", artists);
-//        return "artists";
-//    }
-@GetMapping("/artists")
-public String artists(@RequestParam(required = false) String search, Model model) {
-    Iterable<Artist> artists;
-    if (search != null && !search.isEmpty()) {
-        artists = artistRepository.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(search, search);
-    } else {
-        artists = artistRepository.findAll();
+    @GetMapping("/artists")
+    public String artists(@RequestParam(required = false) String search, Model model) {
+        Iterable<Artist> artists;
+        if (search != null && !search.isEmpty()) {
+            artists = artistRepository.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(search, search);
+        } else {
+            artists = artistRepository.findAll();
+        }
+        model.addAttribute("artists", artists);
+        return "artists";
     }
-    model.addAttribute("artists", artists);
-    return "artists";
-}
 
     @PostMapping("/artistEditForm")
     public String artistEditForm(@RequestParam Long artistId, Model model) {

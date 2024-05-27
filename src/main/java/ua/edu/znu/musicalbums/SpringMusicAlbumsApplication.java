@@ -11,7 +11,6 @@ import ua.edu.znu.musicalbums.controller.filter.AuthFilter;
 @Slf4j
 @SpringBootApplication
 public class SpringMusicAlbumsApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(SpringMusicAlbumsApplication.class, args);
     }

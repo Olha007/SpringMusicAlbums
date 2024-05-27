@@ -71,10 +71,11 @@ public class LoginController {
                     songsNames.add(song.getSongName());
             }
             albumAssignment.setSongs(songsNames.toString());
-            StringBuilder genres = new StringBuilder();
+            StringJoiner genres = new StringJoiner(", ");
+//            StringBuilder genres = new StringBuilder();
             for (Song song : songs) {
                 if (song.getGenre() != null)
-                    genres.append(song.getGenre().getName());
+                    genres.add(song.getGenre().getName());
             }
 
             albumAssignment.setGenres(genres.toString());

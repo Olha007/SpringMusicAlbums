@@ -18,13 +18,13 @@
             <table border="1">
                 <caption>Groups</caption>
                 <tr>
-                    <th>Group id</th>
+<!--                    <th>Group id</th>-->
                     <th>Group name</th>
                     <th>Edit group</th>
                     <th>Remove group</th>
                 </tr>
                 <tr th:each="group : ${groups}">
-                    <td th:utext="${group.id}">groupId</td>
+<!--                    <td th:utext="${group.id}">groupId</td>-->
                     <td th:utext="${group.groupName}">groupName</td>
                     <td>
                         <form th:action="@{/groupEditForm}" method="post">
